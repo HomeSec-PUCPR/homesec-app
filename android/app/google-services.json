@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "61794917755",
+    "project_id": "homesec-db",
+    "storage_bucket": "homesec-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61794917755:android:de66c1a76489b301b431de",
+        "android_client_info": {
+          "package_name": "com.example.homesec_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4FP9fLMSDT75WL_3SDYzx8mbq-l176Sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
