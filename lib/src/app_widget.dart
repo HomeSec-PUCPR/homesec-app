@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:homesec_app/src/shared/utils.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+    return MaterialApp.router(
+      title: 'HOMESEC',
+      theme: AppTheme.theme(),
+      routerConfig: Modular.routerConfig,
     );
   }
 }
