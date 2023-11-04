@@ -10,4 +10,7 @@ class Routes {
       complete ? "/auth/login" : "/login";
   static String signUpPage([bool complete = true]) =>
       complete ? "/auth/signup" : "/signup";
+
+  static String homeModule([bool complete = true]) => "/home/";
+  static String homePage([bool complete = true]) => complete ? "/home/" : "/";
 }

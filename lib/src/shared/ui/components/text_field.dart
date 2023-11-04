@@ -6,13 +6,18 @@ class AppTextFormField extends StatelessWidget {
   final String? label;
   final String? hint;
   final bool obscureText;
+  final void Function(String)? onChanged;
+  final TextInputType? keyboardType;
+
   const AppTextFormField({
     super.key,
     this.controller,
-    this.initialValue,
     this.label,
+    this.initialValue,
     this.hint,
     this.obscureText = false,
+    this.onChanged,
+    this.keyboardType,
   });
 
   InputDecoration get _decoration {
@@ -46,6 +51,8 @@ class AppTextFormField extends StatelessWidget {
           initialValue: initialValue,
           decoration: _decoration,
           obscureText: obscureText,
+          onChanged: onChanged,
+          keyboardType: keyboardType,
         ),
       ],
     );
