@@ -33,12 +33,25 @@ class HomeStore extends Store<HomeState> implements Disposable {
         .collection("Sensors");
 
     _stream = ref.snapshots().listen((event) {
-      print("Event!");
       if (event.docs.isNotEmpty) {
         List<SensorModel> sensors =
             event.docs.map((e) => SensorModel.fromJson(e.data())).toList();
         update(state.setSensors(sensors));
       }
     });
+  }
+
+  void createSensor({required String name, required String serial}) {
+    final body = {
+      "Name": name,
+      "Serial": serial,
+      "Status": false,
+      "CreatedAt": Timestamp.now(),
+    };
+    final ref = _firebaseDb
+        .collection("Users")
+        .doc(_authService.firebaseUser!.uid)
+        .collection("Sensors");
+    ref.add(body);
   }
 }

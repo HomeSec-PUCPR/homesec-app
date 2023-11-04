@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:homesec_app/src/modules/auth/interactor/stores/login_store.dart';
 import 'package:homesec_app/src/modules/auth/ui/pages/login_page.dart';
+import 'package:homesec_app/src/modules/auth/ui/pages/signup_page.dart';
 import 'package:homesec_app/src/shared/utils.dart';
 
 import '../../app_module.dart';
@@ -20,6 +21,9 @@ class AuthModule extends Module {
   void routes(r) {
     r.child(Routes.loginPage(false), child: (context) {
       return const LoginPage();
+    });
+    r.child(Routes.signUpPage(false), child: (context) {
+      return const SignUpPage();
     });
   }
 }

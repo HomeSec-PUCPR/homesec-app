@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:homesec_app/src/modules/home/ui/dialog/add_sensor_dialog.dart';
 import 'package:homesec_app/src/shared/interactor/services/auth_service.dart';
 import 'package:homesec_app/src/shared/utils.dart';
 
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
     Widget list(List<SensorModel> sensors) {
       return Expanded(
         child: ListView.separated(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.only(top: 16),
           itemBuilder: (context, index) {
             final sensor = sensors[index];
             return Container(
@@ -133,8 +134,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      padding: const EdgeInsets.all(16)
-          .copyWith(bottom: 16 + MediaQuery.viewPaddingOf(context).bottom),
+      padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(top: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -172,9 +172,16 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       padding: const EdgeInsets.all(16)
-          .copyWith(bottom: MediaQuery.viewPaddingOf(context).bottom),
+          .copyWith(bottom: MediaQuery.viewPaddingOf(context).bottom + 16),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () async {
+          await showDialog(
+            context: context,
+            builder: (_) {
+              return const AddSensorDialog();
+            },
+          );
+        },
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(
             Theme.of(context).primaryColor,

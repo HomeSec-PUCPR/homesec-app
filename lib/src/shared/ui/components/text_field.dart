@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AppTextFormField extends StatelessWidget {
   final TextEditingController? controller;
@@ -8,6 +9,7 @@ class AppTextFormField extends StatelessWidget {
   final bool obscureText;
   final void Function(String)? onChanged;
   final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
 
   const AppTextFormField({
     super.key,
@@ -18,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.keyboardType,
+    this.inputFormatters,
   });
 
   InputDecoration get _decoration {
@@ -48,11 +51,13 @@ class AppTextFormField extends StatelessWidget {
           const SizedBox(height: 8),
         ],
         TextFormField(
+          controller: controller,
           initialValue: initialValue,
           decoration: _decoration,
           obscureText: obscureText,
           onChanged: onChanged,
           keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
         ),
       ],
     );

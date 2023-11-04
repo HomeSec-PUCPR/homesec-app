@@ -103,7 +103,9 @@ class _LoginPageState extends State<LoginPage> {
           const Divider(),
           Center(
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Modular.to.pushNamed(Routes.signUpPage());
+              },
               child: const Text("CRIE SUA CONTA"),
             ),
           ),
